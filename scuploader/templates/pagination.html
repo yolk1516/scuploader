@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% load bootstrap3 %}
+
+{% block title %}
+    Uploaded Files
+{% endblock %}
+
+{% block content %}
+
+    <table class="table">
+        {% for line in files %}
+            <tr>
+                <td><a href="http://itaotools.s3-website-ap-northeast-1.amazonaws.com/uploads/{{ line }}">{{ line }}</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <hr>
+
+    {% bootstrap_pagination files url="/pagination?page=1&flop=flip" extra="q=foo" size="small" %}
+
+    {% bootstrap_pagination files url="/pagination?page=1" size="large" %}
+
+{% endblock %}

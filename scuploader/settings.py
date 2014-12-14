@@ -36,6 +36,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'bootstrap3',
+    'storages',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -81,3 +83,18 @@ DEFAULT_CHARSET = 'utf-8'
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
+
+TEMPLATE_DIRS = (
+    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
+    os.path.join(BASE_DIR, 'scuploader/templates/'),
+)
+
+# django-storages
+DEFAULT_FILE_STORAGE    = 'storages.backends.s3boto.S3BotoStorage'
+AWS_ACCESS_KEY_ID       = ''
+AWS_SECRET_ACCESS_KEY   = ''
+AWS_STORAGE_BUCKET_NAME = ''
+STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+
